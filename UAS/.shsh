@@ -1,0 +1,87 @@
+#!/bin/bash
+# Mon Jul  6 09:10:41 WIB 2020
+# Fri Jul  3 09:40:32 WIB 2020
+# Sun Jun 28 22:30:20 WIB 2020
+# Thu Jun 25 14:31:00 WIB 2020
+
+echo 'rm -f SHA1SUM SHA1SUM.asc 0001-mytest.txt.asc 0003-TUGAS.tar.bz2.asc'
+rm -f SHA1SUM SHA1SUM.asc 0001-mytest.txt.asc 0003-TUGAS.tar.bz2.asc
+echo 'rm -f 0004-DONE-BEFORE-DEADLINE.txt.asc 0005-KODE-ETIK.txt.asc'
+rm -f 0004-DONE-BEFORE-DEADLINE.txt.asc 0005-KODE-ETIK.txt.asc
+echo 'rm -f 0006-TUGAS4.tar.bz2.asc 0007-TUGAS5.tar.bz2.asc 0008-DONE-NO-MORE-PUSH.txt.asc'
+rm -f 0006-TUGAS4.tar.bz2.asc 0007-TUGAS5.tar.bz2.asc 0008-DONE-NO-MORE-PUSH.txt.asc
+echo '======================================='
+echo 'cp ...'
+/bin/cp -f \
+../OUTSIDE/0000-mypub.txt                \
+../OUTSIDE/0001-mytest.txt               \
+../OUTSIDE/0002-TUGAS-PAS1.txt           \
+.
+echo '======================================='
+echo 'gpg2 --import 0000-mypub.txt'
+gpg2 --import 0000-mypub.txt
+echo '======================================='
+sleep 3
+echo 'gpg2 -o- -e -r operatingsystems@vlsm.org -r cbkadal@vlsm.org -a 0001-mytest.txt | \'
+echo '  gpg2 -o 0001-mytest.txt.asc --clearsign'
+gpg2 -o- -e -r operatingsystems@vlsm.org -r cbkadal@vlsm.org -a 0001-mytest.txt | \
+  gpg2 -o 0001-mytest.txt.asc --clearsign
+echo 'gpg2 -d 0001-mytest.txt.asc | gpg2 -d > /dev/null'
+gpg2 -d 0001-mytest.txt.asc | gpg2 -d > /dev/null
+echo '======================================='
+sleep 3
+echo 'gpg2 -o 0003-TUGAS.tar.bz2.asc -e -r operatingsystems@vlsm.org -r cbkadal@vlsm.org \'
+echo '-a ../OUTSIDE/0003-TUGAS.tar.bz2'
+gpg2 -o 0003-TUGAS.tar.bz2.asc -e -r operatingsystems@vlsm.org -r cbkadal@vlsm.org -a ../OUTSIDE/0003-TUGAS.tar.bz2
+echo 'gpg2 -o /dev/null -d 0003-TUGAS.tar.bz2.asc'
+gpg2 -o /dev/null -d 0003-TUGAS.tar.bz2.asc
+echo '======================================='
+sleep 5
+echo 'gpg2 -o 0004-DONE-BEFORE-DEADLINE.txt.asc --clearsign ../OUTSIDE/0004-DONE-BEFORE-DEADLINE.txt'
+gpg2 -o 0004-DONE-BEFORE-DEADLINE.txt.asc --clearsign ../OUTSIDE/0004-DONE-BEFORE-DEADLINE.txt
+echo 'gpg2 -d      0004-DONE-BEFORE-DEADLINE.txt.asc > /dev/null'
+gpg2 -d      0004-DONE-BEFORE-DEADLINE.txt.asc > /dev/null
+echo '======================================='
+sleep 5
+echo 'gpg2 -o 0005-KODE-ETIK.txt.asc --clearsign ../OUTSIDE/0005-KODE-ETIK.txt'
+gpg2 -o 0005-KODE-ETIK.txt.asc --clearsign ../OUTSIDE/0005-KODE-ETIK.txt
+echo 'gpg2 -d      0005-KODE-ETIK.txt.asc > /dev/null'
+gpg2 -d      0005-KODE-ETIK.txt.asc > /dev/null
+echo '======================================='
+sleep 4
+echo 'gpg2 -o 0006-TUGAS4.tar.bz2.asc -e -r operatingsystems@vlsm.org -r cbkadal@vlsm.org \'
+echo '-a ../OUTSIDE/0006-TUGAS4.tar.bz2'
+gpg2 -o 0006-TUGAS4.tar.bz2.asc -e -r operatingsystems@vlsm.org -r cbkadal@vlsm.org -a ../OUTSIDE/0006-TUGAS4.tar.bz2
+echo 'gpg2 -o /dev/null -d 0006-TUGAS4.tar.bz2.asc'
+gpg2 -o /dev/null -d 0006-TUGAS4.tar.bz2.asc
+echo '======================================='
+sleep 3
+echo 'gpg2 -o 0007-TUGAS5.tar.bz2.asc -e -r operatingsystems@vlsm.org -r cbkadal@vlsm.org \'
+echo '-a ../OUTSIDE/0007-TUGAS5.tar.bz2'
+gpg2 -o 0007-TUGAS5.tar.bz2.asc -e -r operatingsystems@vlsm.org -r cbkadal@vlsm.org -a ../OUTSIDE/0007-TUGAS5.tar.bz2
+echo 'gpg2 -o /dev/null -d 0007-TUGAS5.tar.bz2.asc'
+gpg2 -o /dev/null -d 0007-TUGAS5.tar.bz2.asc
+echo '======================================='
+sleep 3
+echo 'gpg2 -o 0008-DONE-NO-MORE-PUSH.txt.asc --clearsign ../OUTSIDE/0008-DONE-NO-MORE-PUSH.txt'
+gpg2 -o 0008-DONE-NO-MORE-PUSH.txt.asc --clearsign ../OUTSIDE/0008-DONE-NO-MORE-PUSH.txt
+echo 'gpg2 -d 0008-DONE-NO-MORE-PUSH.txt.asc > /dev/null'
+gpg2 -d 0008-DONE-NO-MORE-PUSH.txt.asc > /dev/null
+sleep 2
+echo 'sha1sum 000* > SHA1SUM...'
+sha1sum 000* > SHA1SUM
+echo 'sha1sum -c SHA1SUM...'
+sha1sum -c SHA1SUM
+echo '======================================='
+sleep 2
+echo 'gpg2 -o SHA1SUM.asc -a -sb SHA1SUM...'
+gpg2 -o SHA1SUM.asc -a -sb SHA1SUM
+echo 'gpg2 --verify SHA1SUM.asc SHA1SUM...'
+gpg2 --verify SHA1SUM.asc SHA1SUM 
+echo "======================================="
+git pull;
+git add -A;
+git commit -m 'OS201 cbkadal'
+git push;
+exit
+
