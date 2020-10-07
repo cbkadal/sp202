@@ -3,5 +3,33 @@ Wed 07 Oct 2020 12:21:08 PM WIB
 
 timedatectl set-timezone Asia/Jakarta
 
+Tue Oct  6 20:23:00 WIB 2020
+============================
+* Kerrisk K(P,xxxvi)
+* Week01: K1,2
+* Week02: K2,3,18.8,15.1
+* Week02: K3
+* cd /proc
+  head -20 cpuinfo
+  sleep 3; echo "====    ====    ====    ===="
+  head -20 meminfo
+  sleep 3; echo "====    ====    ====    ===="
+  head -20 uptime
+  sleep 3; echo "====    ====    ====    ===="
+  head -20 version
+  sleep 3; echo "====    ====    ====    ===="
+  head -20 modules
+  sleep 3; echo "====    ====    ====    ===="
+  head -20 partitions
+  sleep 3; echo "====    ====    ====    ===="
+  head -20 sys/fs/file-max
+  sleep 3; echo "====    ====    ====    ===="
+* Magic Numbers
+  (DEC) -- (DEC)
+  672274793 = 0x28121969
+   85072278 = 0x05121996
+  369367448 = 0x16041998
+  537993216 = 0x20112000
+
 ===============================
 Wed 07 Oct 2020 12:21:08 PM WIB
