@@ -2,26 +2,32 @@
 
 cd /proc
 echo "head -20 cpuinfo"
+sleep 1; echo "====    ====    ====    ===="
 head -20 cpuinfo
 sleep 3; echo "====    ====    ====    ===="
 echo "head -20 meminfo"
+sleep 1; echo "====    ====    ====    ===="
 head -20 meminfo
 sleep 3; echo "====    ====    ====    ===="
-echo "head -20 uptime"
-head -20 uptime
+echo "cat uptime"
+sleep 1; echo "====    ====    ====    ===="
+cat uptime
 sleep 3; echo "====    ====    ====    ===="
-echo "head -20 version"
-head -20 version
+echo "cat version"
+sleep 1; echo "====    ====    ====    ===="
+cat version
 sleep 3; echo "====    ====    ====    ===="
 echo "head -20 modules"
+sleep 1; echo "====    ====    ====    ===="
 head -20 modules
 sleep 3; echo "====    ====    ====    ===="
-echo "head -20 partitions"
-head -20 partitions
+echo "cat partitions"
+sleep 1; echo "====    ====    ====    ===="
+cat partitions
 sleep 3; echo "====    ====    ====    ===="
-echo "head -20 sys/fs/file-max"
-head -20 sys/fs/file-max
+echo "cat sys/fs/file-max"
+sleep 1; echo "====    ====    ====    ===="
+cat sys/fs/file-max
 sleep 3; echo "====    ====    ====    ===="
 exit 0
-
 
