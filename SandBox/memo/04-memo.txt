@@ -1,0 +1,7 @@
+Wed 07 Oct 2020 12:21:08 PM WIB
+===============================
+
+timedatectl set-timezone Asia/Jakarta
+
+===============================
+Wed 07 Oct 2020 12:21:08 PM WIB
