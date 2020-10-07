@@ -4,6 +4,10 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
 #include <gnu/libc-version.h>
 
 int main(void) {
@@ -16,6 +20,7 @@ int main(void) {
     printf("%9.9ld -- %#8.8lX (DY Torvalds)\n", ii, ii);
     ii=537993216;
     printf("%9.9ld -- %#8.8lX (CA Torvalds)\n", ii, ii);
+    printf("PID %d PPID %d\n", getpid(), getppid());
 }
 
 
