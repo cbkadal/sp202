@@ -1,8 +1,12 @@
 Wed 07 Oct 2020 12:21:08 PM WIB
 ===============================
 
-# SET TIME ZONE
-timedatectl set-timezone Asia/Jakarta
+# OVA:
+Ubuntu Server 20.04 for VirtualBox: https://bit.ly/2HRIihL (1.2GB)
+README2: https://bit.ly/30ysAP5 (249 bytes)
+
+Debian 10.5 OVA for VirtualBox: https://bit.ly/2FMU7F8 (662MB)
+README1: https://bit.ly/3mxkpvP (182 bytes)
 
 * Kerrisk K(P,xxxvi)
 * Week01: K1,2
@@ -18,6 +22,9 @@ timedatectl set-timezone Asia/Jakarta
   537993216 = 0x20112000
 * dirs_links/list_files
 * fileio/copy.c
+
+# SET TIME ZONE
+timedatectl set-timezone Asia/Jakarta
 
 ===============================
 Wed 07 Oct 2020 12:21:08 PM WIB
