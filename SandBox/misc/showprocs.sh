@@ -29,5 +29,13 @@ echo "cat sys/fs/file-max"
 sleep 1; echo "====    ====    ====    ===="
 cat sys/fs/file-max
 sleep 3; echo "====    ====    ====    ===="
-exit 0
+echo "ls -al /proc/$$ | head -20"
+sleep 1; echo "====    ====    ====    ===="
+ls -al /proc/$$ | head -20
+sleep 3; echo "====    ====    ====    ===="
+echo "head -20 /proc/$$/status"
+sleep 1; echo "====    ====    ====    ===="
+head -20 /proc/$$/status
+sleep 3; echo "====    ====    ====    ===="
 
+exit 0
