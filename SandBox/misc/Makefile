@@ -4,8 +4,6 @@
 all:    proc01
 	ldd proc01
 
-hello:    proc01.c
-
 clean:
 	@rm -f proc01
 
