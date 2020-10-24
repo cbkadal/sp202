@@ -1,6 +1,6 @@
 #!/bin/bash
-# Sun 18 Oct 2020 07:24:57 AM WIB (rms)
-# Sun 18 Oct 2020 06:19:53 AM WIB (rms)
+# REV01 Sat 24 Oct 2020 07:34:58 PM WIB
+# START Sun 18 Oct 2020 06:19:53 AM WIB (rms)
 # additional package: git-flow.deb
 
 # master is the master
@@ -23,18 +23,19 @@ cd master
 git commit -am "Initial Commit" --allow-empty
 git remote add origin ../remote/
 git push --set-upstream origin master
-echo "#####    #####     This is branch master..."  | tee README.md | tee master.md
+echo "#####    #####     This is branch master..."  | tee master.md
 git pull; git add -A; git commit -m "master"; git push;
 git flow init -d
 git push --set-upstream origin develop
-echo "#####    #####     This is branch develop..." | tee README.md | tee develop.md
+echo "#####    #####     This is branch develop..." | tee develop.md
 git pull; git add -A; git commit -m "develop"; git push;
 for II in $USERS ; do
     echo "$II"
     git flow feature start $II
     git push --set-upstream origin $II
-    echo "#####    #####     This is branch $II..." | tee README.md | tee $II.md
+    echo "#####    #####     This is branch $II..." | tee $II.md
     git pull; git add -A; git commit -m "$II"; git push;
+    git checkout develop
 done
 git checkout master
 cd ..
