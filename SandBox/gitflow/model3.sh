@@ -41,11 +41,7 @@ git checkout master
 cd ..
 
 for II in $USERS develop ; do
-    git clone remote/ $II
-    cd $II
-    git pull origin $II
-    git checkout $II
-    cd ..
+    git clone remote/ --branch $II --single-branch $II
 done
 exit
 
