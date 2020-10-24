@@ -43,7 +43,6 @@ cd ..
 for II in $USERS develop ; do
     git clone remote/ $II
     cd $II
-    git flow init -d
     git pull origin $II
     git checkout $II
     cd ..
