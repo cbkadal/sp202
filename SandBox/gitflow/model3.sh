@@ -40,8 +40,17 @@ done
 git checkout master
 cd ..
 
-for II in $USERS develop ; do
+for II in $USERS ; do
     git clone remote/ --branch $II --single-branch $II
 done
+
+git clone remote/ develop
+cd develop
+for II in $USERS master develop ; do
+    echo $II
+    git checkout $II
+    git push --set-upstream origin $II
+done
+
 exit
 
