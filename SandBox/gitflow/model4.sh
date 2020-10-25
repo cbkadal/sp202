@@ -1,4 +1,5 @@
 #!/bin/bash
+# REV02 Sun 25 Oct 2020 11:36:35 AM WIB
 # REV01 Sat 24 Oct 2020 07:34:58 PM WIB
 # START Sun 18 Oct 2020 06:19:53 AM WIB (rms)
 # additional package: git-flow.deb
@@ -25,6 +26,10 @@ git remote add origin ../remote/
 git push --set-upstream origin master
 echo "#####    #####     This is branch master..."  | tee master.md
 git pull; git add -A; git commit -m "master"; git push;
+cd ..
+
+git clone remote/ develop
+cd develop
 git flow init -d
 git push --set-upstream origin develop
 echo "#####    #####     This is branch develop..." | tee develop.md
@@ -37,19 +42,10 @@ for II in $USERS ; do
     git pull; git add -A; git commit -m "$II"; git push;
     git checkout develop
 done
-git checkout master
 cd ..
 
 for II in $USERS ; do
     git clone remote/ --branch $II --single-branch $II
-done
-
-git clone remote/ develop
-cd develop
-for II in $USERS master develop ; do
-    echo $II
-    git checkout $II
-    git push --set-upstream origin $II
 done
 
 exit
