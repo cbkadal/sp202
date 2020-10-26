@@ -37,7 +37,7 @@ git pull; git add -A; git commit -m "develop"; git push;
 for II in $USERS ; do
     echo "$II"
     git flow feature start $II
-    git push --set-upstream origin $II
+    git push --set-upstream origin feature/$II
     echo "#####    #####     This is branch $II..." | tee $II.md
     git pull; git add -A; git commit -m "$II"; git push;
     git checkout develop
