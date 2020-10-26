@@ -45,7 +45,7 @@ done
 cd ..
 
 for II in $USERS ; do
-    git clone remote/ --branch $II --single-branch $II
+    git clone remote/ --branch feature/$II --single-branch $II
 done
 
 exit
