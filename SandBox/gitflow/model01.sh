@@ -11,6 +11,7 @@
 # user2 will work in branch user2
 # user3 will work in branch user3
 
+# Fixing F* gitflow bugs
 git config --global gitflow.prefix.hotfix  "hotfix/"
 git config --global gitflow.prefix.feature "feature/"
 git config --global gitflow.prefix.bugfix  "bugfix/"
@@ -31,6 +32,25 @@ cd master
 git commit -am "Initial Commit" --allow-empty
 git remote add origin ../remote/
 git push --set-upstream origin master
+cat > README.md << NNNN
+\`\`\`
+# This is HOW ME DO IT!
+## By $(echo $USER) ($(date +"%Y-%m-%d-%H:%M:%S"))
+
+* do not forget to install: apt-get install git-flow
+
+* this model is about "WHERE to do WHAT" with git flow
+
+  * Repo (folder) type 'remote/' can be replaced with a github.com repo.
+
+  * Repo (folder) type 'master/' is related with the 'master branch'.
+
+  * Repo (folder) type 'develop/' is related with all branches. All merges/rebases should be done is this type.
+
+  * Repo (folder) type 'userX/' is related with the 'feature/userX branch'.
+\`\`\`
+NNNN
+git pull;git add -A;git commit -m "cbkadal OSP";git push;
 cd ..
 
 git clone remote/ develop
