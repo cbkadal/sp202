@@ -12,8 +12,8 @@ git config --global gitflow.prefix.release "release/"
 git config --global gitflow.prefix.support "support/"
 
 USERS="user1 user2 user3"
-# This will NUKE ALL user1, user2, user2, .remote, master, develop
-rm -rf $USERS .remote master develop
+# This will NUKE ALL user1, user2, user2, .remote, master
+rm -rf $USERS .remote master 
 
 # Create a new .remote
 git init .remote --bare
@@ -36,14 +36,10 @@ cat > README.md << NNNN
 
   * Repo '.remote/' can be replaced with a github.com repo.
 
-  * Repos 'master/', 'develop/', 'user1/', etc.
+  * Repos 'master/', 'user1/', etc.
 \`\`\`
 NNNN
 git pull;git add -A;git commit -m "cbkadal OSP";git push;
-cd ..
-
-git clone .remote/ develop
-cd develop
 git flow init -d
 git push --set-upstream origin develop
 cd ..
@@ -63,6 +59,19 @@ for II in $(ls) ; do
     git pull --all
     cd ..
 done
+
+cd master
+git checkout develop
+git flow release start   v1.0
+git flow release publish v1.0 
+git flow release finish  v1.0
+git push origin --tags
+git pull
+git flow hotfix start   v1.0.1
+git flow hotfix publish v1.0.1
+git flow hotfix finish  v1.0.1
+git push origin --tags
+git checkout master
 
 exit
 
