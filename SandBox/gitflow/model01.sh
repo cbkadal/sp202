@@ -3,15 +3,8 @@
 # REV02 Sun 25 Oct 2020 11:36:35 AM WIB
 # REV01 Sat 24 Oct 2020 07:34:58 PM WIB
 # START Sun 18 Oct 2020 06:19:53 AM WIB (rms)
-# additional package: git-flow.deb
 
-# master is the master
-# remote can be replaced with github.com or others
-# user1 will work in branch user1
-# user2 will work in branch user2
-# user3 will work in branch user3
-
-# Fixing F* gitflow bugs
+# (Fixing f* git-flow bugs)
 git config --global gitflow.prefix.hotfix  "hotfix/"
 git config --global gitflow.prefix.feature "feature/"
 git config --global gitflow.prefix.bugfix  "bugfix/"
@@ -39,7 +32,7 @@ cat > README.md << NNNN
 
 * do not forget to install: apt-get install git-flow
 
-* this model is about "WHERE to do WHAT" with git flow
+* this model is about "WHERE to do WHAT" with git-flow
 
   * Repo (folder) type 'remote/' can be replaced with a github.com repo.
 
