@@ -34,6 +34,9 @@ git flow init -d
 git push --set-upstream origin develop
 echo "#####    #####     This is branch develop..." | tee develop.md
 git pull; git add -A; git commit -m "develop"; git push;
+cat .shsh
+exit
+
 for II in $USERS ; do
     echo "$II"
     git flow feature start feature/$II
