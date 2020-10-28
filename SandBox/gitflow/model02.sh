@@ -12,18 +12,18 @@ git config --global gitflow.prefix.release "release/"
 git config --global gitflow.prefix.support "support/"
 
 USERS="user1 user2 user3"
-# This will NUKE ALL user1, user2, user2, remote, master, develop
-rm -rf $USERS remote master develop
+# This will NUKE ALL user1, user2, user2, .remote, master, develop
+rm -rf $USERS .remote master develop
 
-# Create a new remote
-git init remote --bare
+# Create a new .remote
+git init .remote --bare
 
 # Create a master plus init all branches
 git init master
 
 cd master
 git commit -am "Initial Commit" --allow-empty
-git remote add origin ../remote/
+git remote add origin ../.remote/
 git push --set-upstream origin master
 cat > README.md << NNNN
 \`\`\`
@@ -32,34 +32,36 @@ cat > README.md << NNNN
 
 * do not forget to install: apt-get install git-flow
 
-* this model is about "WHERE to do WHAT" with git-flow
+* this model has several 'independent' repos (folders).
 
-  * Repo (folder) type 'remote/' can be replaced with a github.com repo.
+  * Repo '.remote/' can be replaced with a github.com repo.
 
-  * Repo (folder) type 'master/' is related with the 'master branch'.
-
-  * Repo (folder) type 'develop/' is related with all branches. All merges/rebases should be done is this type.
-
-  * Repo (folder) type 'userX/' is related with the 'feature/userX branch'.
+  * Repos 'master/', 'develop/', 'user1/', etc.
 \`\`\`
 NNNN
 git pull;git add -A;git commit -m "cbkadal OSP";git push;
 cd ..
 
-git clone remote/ develop
+git clone .remote/ develop
 cd develop
 git flow init -d
 git push --set-upstream origin develop
-
-for II in $USERS ; do
-    git flow feature start $II
-    git push --set-upstream origin feature/$II
-    git checkout develop
-done
 cd ..
 
 for II in $USERS ; do
-    git clone remote/ --branch feature/$II --single-branch $II
+    git clone .remote/ $II
+    cd $II
+    git flow init -d
+    git flow feature start   $II
+    git flow feature publish $II
+    cd ..
+done
+
+for II in $(ls) ; do
+    [ -d $II ] || continue
+    cd $II
+    git pull
+    cd ..
 done
 
 exit
