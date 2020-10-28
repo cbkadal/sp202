@@ -64,12 +64,12 @@ cd master
 git checkout develop
 git flow release start   v1.0
 git flow release publish v1.0 
-git flow release finish  v1.0
+git flow release finish  v1.0 -m "v1.0"
 git push origin --tags
 git pull
 git flow hotfix start   v1.0.1
 git flow hotfix publish v1.0.1
-git flow hotfix finish  v1.0.1
+git flow hotfix finish  v1.0.1 -m "v1.0.1"
 git push origin --tags
 git checkout master
 
