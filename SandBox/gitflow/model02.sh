@@ -60,7 +60,7 @@ done
 for II in $(ls) ; do
     [ -d $II ] || continue
     cd $II
-    git pull
+    git pull --all
     cd ..
 done
 
