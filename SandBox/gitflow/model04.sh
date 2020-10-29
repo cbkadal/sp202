@@ -94,6 +94,11 @@ git add -A;git commit -m "cbkadal OSP";
 git flow hotfix publish v1.0.1
 git flow hotfix finish  v1.0.1 -m "v1.0.1"
 git push origin --tags
+git push --all
+git checkout master
+git push
+git checkout develop
+git push
 
 exit
 
