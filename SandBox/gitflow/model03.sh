@@ -72,7 +72,8 @@ git flow hotfix start   v1.0.1
 git flow hotfix publish v1.0.1
 git flow hotfix finish  v1.0.1 -m "v1.0.1"
 git push origin --tags
-git checkout master
+[ -f ../.shsh ] && cp ../.shsh gitScript.sh
+git add -A;git commit -m "cbkadal OSP";git push;
 
 exit
 
